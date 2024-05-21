@@ -5,36 +5,8 @@ Its the front-end of the web aplication that you can log in, create account, add
 
 <p align="center">
   <a href="#-tecnologias">Techs/Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Project/Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-licença">License/Licença</a>
 </p>
 
-
-<p align="center">
-  <img alt="Home" src="./src/assets/home2.png" width="100%">
-</p>
-
-<p align="center">
-  <img alt="LogIn" src="./src/assets/signin2.png" width="100%">
-</p>
-
-<p align="center">
-  <img alt="Movie Details" src="./src/assets/details2.png" width="100%">
-</p>
-
-<p align="center">
-  <img alt="New movie note" src="./src/assets/newmovie2.png" width="100%">
-</p>
-
-<p align="center">
-  <img alt="Register" src="./src/assets/signup2.png" width="100%">
-</p>
-
-
-<p align="center">
-  <img alt="Profile" src="./src/assets/profil2e.png" width="100%">
-</p>
 
 ## 🚀 Techs / Tecnologias
 
