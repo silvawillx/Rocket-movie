@@ -1,69 +1,62 @@
-import { FiPlus, FiSearch } from 'react-icons/fi'
-import { Container, NewMovie } from './styles.js'
-import { Header } from '../../components/Header'
-import { useNavigate } from 'react-router-dom'
-import { Input } from '../../components/Input'
-import { Movie } from '../../components/Movie'
-import { api } from '../../service/api.js'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { FiPlus } from "react-icons/fi";
+import { Container, Content, NewMovie } from "./styles";
 
-export function Home(){
-    const [ notes, setNotes ] = useState([]) 
-    const [ search, setSearch ] = useState("")
+import { api } from "../../services/api";
 
-    const navigate = useNavigate()
+import { Header } from "../../components/Header";
+import { Input } from "../../components/Input";
+import { Movie } from "../../components/Movie";
 
-    function handleDetails(id) {
-        navigate(`/moviedetails/${id}`);
-      }
- 
-    useEffect(() => {
-        async function searchNotes(){
-            const response = await api.get(`/notes?movie_title=${search}`)
-            setNotes(response.data)
+export function Home() {
+  const [movies, setMovies] = useState([]);
+  const [search, setSearch] = useState("");
 
-        }
+  const navigate = useNavigate();
 
-        searchNotes()
+  function handleDetails(id) {
+    navigate(`/details/${id}`);
+  }
 
-    }, [ search ])
+  useEffect(() => {
+    async function fetchMovies() {
+      const response = await api.get(`/notes?title=${search}`);
+      setMovies(response.data);
+    }
 
+    fetchMovies();
+  }, [search]);
 
-    return(
-        <Container>
-            
-            <Header>
-                <Input 
-                placeholder="Pesquisar pelo título" 
-                icon={ FiSearch }
-                onChange= { (e) => setSearch(e.target.value) }
-                > 
-                </Input>
-            </Header>
+  return (
+    <Container>
+      <Header>
+        <Input
+          placeholder="Pesquisar pelo título"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </Header>
 
-            <main>
-            <header>
-                <h1>Meus Filmes</h1>
+      <main>
+        <header>
+          <h1>Meus filmes</h1>
 
-            <NewMovie to="/newmovie">
-                   <FiPlus></FiPlus>
-                   Adicionar Filme
-            </NewMovie>
-            </header>
+          <NewMovie to="/new">
+            <FiPlus />
+            Adicionar filme
+          </NewMovie>
+        </header>
 
-            {   
-                notes.map((note) =>
-                    <Movie
-                        data={note}
-                        key={String(note.id)}
-                        description={note.description}
-                        onClick={()=> handleDetails(note.id)}/>
-
-                )
-            }
-
-            </main>
-        </Container>
-    )
+        <Content>
+          {movies.map((movie) => (
+            <Movie
+              key={String(movie.id)}
+              data={movie}
+              onClick={() => handleDetails(movie.id)}
+            />
+          ))}
+        </Content>
+      </main>
+    </Container>
+  );
 }

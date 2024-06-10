@@ -1,25 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
+  width: 100%;
+  background-color: ${({ theme }) => theme.COLORS.PINK};
+  color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
-    width: 15rem;
-    background-color: ${({ theme }) => theme.COLORS.PINK};
-    color: ${({ theme }) => theme.COLORS.WHITE};
+  height: 5.6rem;
+  border: 0;
+  padding: 0 1.6rem;
+  margin-top: 1.6rem;
+  border-radius: 1rem;
+  font-weight: 500;
 
-    height: 56px;
-    border: 0;
-    padding: 0 16px;
-    margin-top: 16px;
-    border-radius: 10px;
-
-    letter-spacing: 1px;
-
-    &:disabled {
-        opacity: 0.5;
-        transition: 1s;
-    }
-`
+  &:disabled {
+    opacity: 0.5;
+  }
+`;

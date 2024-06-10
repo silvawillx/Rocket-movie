@@ -1,49 +1,40 @@
-import { Container, Profile, Logout, Search } from './styles.js'
-import avatarPlaceHolder  from '../../assets/user.svg'
-import { RiShutDownLine } from 'react-icons/ri'
-import { useAuth } from '../../hooks/auth.jsx';
-import { useNavigate } from 'react-router-dom';
-import { Input } from "../Input/index.jsx";
-import { FiSearch } from "react-icons/fi";
-import { api } from '../../service/api.js';
-import { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom";
+import { Container, Brand, Search, Profile, Logout } from "./styles";
+import { useAuth } from "../../hooks/auth";
 
-export function Header({ children }){
-    const { signOut, user } = useAuth()
+import { api } from "../../services/api";
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
-    const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceHolder
+export function Header({ children }) {
+  const { signOut, user } = useAuth();
+  const navigation = useNavigate();
 
-    const navigate = useNavigate()
+  function handleSignOut() {
+    navigation("/");
+    signOut();
+  }
 
-    function handleBack(){
-        navigate("/")
-    }
+  const avatarURL = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder;
 
-    return(
-        <Container>
-            <h1
-            onClick={ handleBack }>
-                RocketMovies
-            </h1>
-            
-            <Search>
-                { children }
-            </Search>
+  return (
+    <Container>
+      <Brand>
+        <h1>RocketMovies</h1>
+      </Brand>
 
-            <Profile to="/profile">
-                <img
-                src={ avatarURL }
-                alt="Foto do Usuário" />
+      <Search>{children}</Search>
 
-                <div>
-                    <span>Bem Vindo,</span>
-                    <strong>{user.name}</strong>
-                </div>
-            </Profile>
+      <Profile to="/profile">
+        <div>
+          <strong>{user.name}</strong>
+        </div>
 
-            <Logout onClick={ signOut }>
-                <RiShutDownLine></RiShutDownLine>
-            </Logout>
-        </Container>
-    )
+        <img src={avatarURL} alt={user.name} />
+      </Profile>
+
+      <Logout onClick={handleSignOut}>sair</Logout>
+    </Container>
+  );
 }

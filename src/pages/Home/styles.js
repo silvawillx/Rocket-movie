@@ -1,71 +1,61 @@
-import styled from "styled-components"
-import { Link } from "react-router-dom"
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: 11.6rem auto;
+  grid-template-areas:
+    "header"
+    "content";
+
+  > main {
+    grid-area: content;
+
     width: 100%;
-    height: 100vh;
+    max-width: 113.7rem;
+    margin: 4.8rem auto;
 
-    justify-content: space-between;
-    align-items: center;
-    overflow-y: auto;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+      margin-bottom: 3.8rem;
 
-    > main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 0 10rem;
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 2rem 0;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-top: 1rem;
-            font-weight: 400;
-        }
+      h1 {
+        font-weight: 400;
+      }
     }
+  }
+`;
 
-    ::-webkit-scrollbar {
-        width: .5rem;
-    }
+export const Content = styled.div`
+  max-height: calc(100vh - 29.7rem);
+  overflow-y: auto;
 
-    ::-webkit-scrollbar-track{
-        background-color: ${({ theme }) => theme.COLORS.PINK};
-        border-radius: 10px;
-        margin-left: .5rem;
-    }  
+  ::-webkit-scrollbar {
+    width: 0.8rem;
+  }
 
-`
+  ::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.COLORS.PINK};
+    border-radius: 0.8rem;
+  }
+`;
 
 export const NewMovie = styled(Link)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: ${({ theme }) => theme.COLORS.PINK};
+  color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+  border: none;
 
-    background-color: ${({ theme }) => theme.COLORS.PINK};
-    color: ${({ theme }) => theme.COLORS.WHITE};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
 
-    height: 56px;
-
-    padding: 0 16px;
-    margin-top: 16px;
-    
-    border: 0;
-    border-radius: 10px;
-
-    font-family: 'Roboto';
-    font-weight: bold;
-    cursor: pointer;
-
-    > svg{
-        color: ${({ theme }) => theme.COLORS.WHITE};
-        font-size: 1.2rem;
-    }
-    
-`
+  padding: 1.35rem 3.2rem;
+  border-radius: 0.8rem;
+`;

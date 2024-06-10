@@ -1,4 +1,4 @@
-<h1 align="center"> Rocket Movie Notes</h1>
+<h1 align="center"> Rocket Movie</h1>
 
 <p align="center">
 Its the front-end of the web aplication that you can log in, create account, add your favorite movies, rating then and see your movie notes. Client can add tags to search for movies.<br/> </p>
@@ -30,6 +30,3 @@ Este é o front end da aplicação que tem como objetivo conectar cinéfilos de 
 
 This is the front end of the app that aims to connect movie buffs from all over the world to add their favorite movies, leave a comment on them and also give a rating. You can change it whenever you want, and also change your password and user image. The application has pages for registering, logging in, adding a new film, a home page where all the expanded films are located and a detailed page where the user can see the comment they left.
 
-## 🔖 Layout
-
-Você pode visualizar o layout do projeto através do repositório e do deploy. 

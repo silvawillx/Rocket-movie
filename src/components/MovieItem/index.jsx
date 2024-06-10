@@ -1,19 +1,19 @@
 import { FiPlus, FiX } from "react-icons/fi";
-import { Container } from "./styles.js";
 
-export function MovieItem({ isnew, value, onClick, ...rest }) {
+import { Container } from "./styles";
+
+export function MovieItem({ isNew, value, onClick, ...rest }) {
   return (
-    <Container isnew={isnew}>
-      <input type="text" value={value} readOnly={!isnew} {...rest} />
-    
+    <Container isNew={isNew}>
+      <input type="text" value={value} readOnly={!isNew} {...rest} />
+
       <button
         type="button"
         onClick={onClick}
-        className={isnew ? "button-add" : "button-delete"}
+        className={isNew ? "button-add" : "button-delete"}
       >
-        {isnew ? <FiPlus /> : <FiX />}
+        {isNew ? <FiPlus /> : <FiX />}
       </button>
-      
     </Container>
-  )
+  );
 }
