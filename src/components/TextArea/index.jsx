@@ -7,4 +7,3 @@ export function Textarea({ value, ...rest }) {
     </Container>
   );
 }
-
