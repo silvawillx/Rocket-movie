@@ -4,7 +4,7 @@ import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 import { ButtonText } from "../../components/ButtonText";
-import { Textarea } from "../../components/Textarea";
+import { Textarea } from "../../components/TextArea";
 import { MovieItem } from "../../components/MovieItem";
 import { Section } from "../../components/Section";
 import { Button } from "../../components/Button";
